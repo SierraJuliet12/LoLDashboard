@@ -1,0 +1,45 @@
+---
+title: "League of Legends Bans by Region"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(DT)
+library(fontawesome)
+data <- read.csv('2022.csv')
+df2 <- data[!(data$league=='NLC' | data$league=='SL'| data$league=='Proving Grounds Circuit'| data$league=='UL'| data$league=='PRM'| data$league=='LFL'| data$league=='GLL'| data$league=='HM'| data$league=='ES'| data$league=='EBL'| data$league=='LPLOL'| data$league=='PGN'| data$league=='LCSA'| data$league=='LVP DDH'| data$league=='TRA'| data$league=='TCL'| data$league=='CBLOL'| data$league=='LCO'| data$league=='LHE'| data$league=='GL'| data$league=='LE'| data$league=='CBLOLA'| data$league=='LMF'| data$league=='VL'| data$league=='LLA'| data$league=='HC'| data$league=='LDL'| data$league=='LJL'| data$league=='PCS'| data$league=='VCS'| data$league=='LCL'| data$league=='NEXO'| data$league=='EL'| data$league=='LCK CL'),]
+```
+
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+df2 %>% ggplot(aes(x = champion, color=league)) + geom_point(stat="count")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
